@@ -1,18 +1,20 @@
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
+
 public class DictionaryManagement {
-    static Scanner sc = new Scanner(System.in);
-    public static void  insertFromCommandline() {
+    public Scanner sc = new Scanner(System.in);
+     Dictionary dictionary = new Dictionary();
+    public void  insertFromCommandline() {
         int n = sc.nextInt();
-        Word[] in = new Word[n];
+        Dictionary dictionary = new Dictionary();
         for(int i = 0; i < n; i++) {
-            String s = sc.nextLine();
-            in[i].setWord(s);
-            s = sc.nextLine();
-            in[i].setMean(s);
+            String s1 = sc.nextLine();
+            String s2 = sc.nextLine();
+            Word w = new Word(s1, s2);
+            dictionary.add(w);
         }
     }
 
-    public static void main(String[] args) {
-        insertFromCommandline();
-    }
+
+
 }
