@@ -1,8 +1,10 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class DictionaryCommandline {
     static DictionaryManagement myDictionary = new DictionaryManagement();
-    public static void showAllWords() {
+    public static void showAllWords() throws IOException {
+        myDictionary.insertFromFile();
         System.out.println("No | English | Vietnamese");
         int n = myDictionary.dictionary.size();
         for (int i = 0; i < n; i++) {
@@ -11,11 +13,14 @@ public class DictionaryCommandline {
         }
     }
 
-    public static void dictionaryBasic() {
+    public static void dictionaryBasic() throws IOException {
         myDictionary.insertFromCommandline();
         showAllWords();
     }
 
-
+    public static void main(String[] args) throws IOException {
+        showAllWords();
+    }
+ 
 
 }
