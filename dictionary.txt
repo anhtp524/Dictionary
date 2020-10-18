@@ -1,4 +1,0 @@
-Hello	xin chào
-Dog	chó
-Cat	mèo
-Beautiful	đẹp	

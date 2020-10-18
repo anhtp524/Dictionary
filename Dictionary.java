@@ -9,9 +9,14 @@ public class Dictionary {
          count ++;
      }
 
-    public void delete(Word a) {
-         list.remove(a);
-         count --;
+    public void delete(String a) {
+         for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getWord().equals(a)) {
+                list.remove(i);
+                count --;
+            }
+         }
+
     }
 
     public int size() {
