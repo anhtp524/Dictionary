@@ -41,6 +41,7 @@ public class DictionaryCommandline {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static void dictionarySearcher() throws IOException {
         myDictionary.insertFromFile();
         showAllWords();
@@ -53,6 +54,8 @@ public class DictionaryCommandline {
 =======
 =======
 >>>>>>> 8c847689d23191f2e0ae923bfb289be050ff1b4d
+=======
+>>>>>>> 8c847689d23191f2e0ae923bfb289be050ff1b4d
     public static boolean compare(String s1, String s2) {
         int n = s1.length();
         int dem = 0;
@@ -60,12 +63,16 @@ public class DictionaryCommandline {
             if (s1.charAt(i) == s2.charAt(i)) {
                 dem++;
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 8c847689d23191f2e0ae923bfb289be050ff1b4d
+=======
 >>>>>>> 8c847689d23191f2e0ae923bfb289be050ff1b4d
 =======
 >>>>>>> 8c847689d23191f2e0ae923bfb289be050ff1b4d
             }
             else count++;
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
         if(count == myDictionary.dictionary.size()) System.out.println("No word in Dictionary");
     }
@@ -84,12 +91,17 @@ public class DictionaryCommandline {
 =======
 =======
 >>>>>>> 8c847689d23191f2e0ae923bfb289be050ff1b4d
+=======
+>>>>>>> 8c847689d23191f2e0ae923bfb289be050ff1b4d
         if (dem == n) {
             return true;
         } else {
             return false;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 8c847689d23191f2e0ae923bfb289be050ff1b4d
+=======
 >>>>>>> 8c847689d23191f2e0ae923bfb289be050ff1b4d
 =======
 >>>>>>> 8c847689d23191f2e0ae923bfb289be050ff1b4d
