@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class DictionaryCommandline {
     static DictionaryManagement myDictionary = new DictionaryManagement();
-    public static void showAllWords() throws IOException {
 
+    public static void showAllWords() throws IOException {
         System.out.println("No | English | Vietnamese");
         int n = myDictionary.dictionary.size();
         for (int i = 0; i < n; i++) {
@@ -23,8 +23,6 @@ public class DictionaryCommandline {
         showAllWords();
         myDictionary.dictionaryLookup();
     }
-
-
 
     public static void dictionarySearcher() throws IOException {
         myDictionary.insertFromFile();

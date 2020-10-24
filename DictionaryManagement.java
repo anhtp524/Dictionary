@@ -59,7 +59,20 @@ public class DictionaryManagement {
         dictionary.delete(s1);
     }
 
+    public void fixWord(String word) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        dictionary.fix(word, s);
+    }
 
+    public void dictionaryExportToFile() throws IOException {
+        File f = new File("C:\\Users\\anhtp\\IdeaProjects\\Dictionary\\tu_dien.txt");
+        FileWriter fw = new FileWriter(f);
+        BufferedWriter bw = new BufferedWriter(fw);
+        addWord();
+        int n = dictionary.size();
+        bw.write(dictionary.getWordinList(n-1) + "  " +dictionary.getMeaninList(n-1) + "\n");
+    }
 
 
 

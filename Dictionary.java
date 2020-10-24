@@ -31,10 +31,12 @@ public class Dictionary {
          return list.get(n).getMean();
     }
 
-    
-
-
-
-
+    public void fix(String word, String input) {
+         for (int i = 0; i < list.size(); i++) {
+             if(getWordinList(i).equals(word) == true) {
+                 list.get(i).setMean(input);
+             }
+         }
+    }
 }
 
