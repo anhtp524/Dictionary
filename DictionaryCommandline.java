@@ -1,15 +1,18 @@
+/*
+import com.sun.deploy.security.MozillaMyKeyStore;
+
 import java.io.IOException;
 import java.util.Scanner;
 
-public class DictionaryCommandline {
+public class DictionaryCommandline extends DictionaryManagement {
     static DictionaryManagement myDictionary = new DictionaryManagement();
-    public static void showAllWords() throws IOException {
 
+    public static void showAllWords() throws IOException {
         System.out.println("No | English | Vietnamese");
-        int n = myDictionary.dictionary.size();
+        int n = myDictionary.dictionary.list.size();
         for (int i = 0; i < n; i++) {
             System.out.println((i + 1) + " | " + myDictionary.dictionary.getWordinList(i) +
-                                " | " + myDictionary.dictionary.getMeaninList(i));
+                    " | " + myDictionary.dictionary.getMeaninList(i));
         }
     }
 
@@ -20,11 +23,9 @@ public class DictionaryCommandline {
 
     public static void dictionaryAdvanced() throws IOException {
         myDictionary.insertFromFile();
-        showAllWords();
-        myDictionary.dictionaryLookup();
+        //showAllWords();
+        //myDictionary.dictionaryLookup();
     }
-
-
 
     public static void dictionarySearcher() throws IOException {
         myDictionary.insertFromFile();
@@ -32,13 +33,14 @@ public class DictionaryCommandline {
         Scanner sc = new Scanner(System.in);
         String keyWord = sc.nextLine();
         int count = 0;
-        for(int i = 0; i < myDictionary.dictionary.size(); i++) {
+        for(int i = 0; i < myDictionary.dictionary.list.size(); i++) {
+            count = 0;
             if (testString(keyWord, myDictionary.dictionary.getWordinList(i))) {
                 System.out.println(myDictionary.dictionary.getWordinList(i));
             }
             else count++;
         }
-        if(count == myDictionary.dictionary.size()) System.out.println("No word in Dictionary");
+        if(count == myDictionary.dictionary.list.size()) System.out.println("No word in Dictionary");
     }
 
     public static boolean testString(String s1, String s2) {
@@ -53,11 +55,14 @@ public class DictionaryCommandline {
         else return false;
     }
 
-    public static void main(String[] args) throws IOException {
-        dictionarySearcher();
-        //dictionaryAdvanced();
-        //showAllWords();
-    }
- 
+    */
+/*public static void main(String[] args) throws IOException {
+        myDictionary.insertFromFile();
+        showAllWords();
+        myDictionary.dictionaryExportToFile();
+        showAllWords();
+    }*//*
 
-}
+
+
+}*/
