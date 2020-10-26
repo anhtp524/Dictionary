@@ -1,5 +1,0 @@
-Home	nha
-Hello	chao
-Cat	meo
-Dog	cho
-Count	dem
