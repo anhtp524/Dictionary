@@ -13,20 +13,20 @@ public class DictionaryCommandline {
         }
     }
 
-    public static void dictionaryBasic() throws IOException {
+    public static void dictionaryBasic() throws Exception {
         myDictionary.insertFromCommandline();
         showAllWords();
     }
 
-    public static void dictionaryAdvanced() throws IOException {
+    public static void dictionaryAdvanced() throws Exception {
         myDictionary.insertFromFile();
         showAllWords();
         myDictionary.dictionaryLookup();
     }
 
     public static void dictionarySearcher() throws IOException {
-        myDictionary.insertFromFile();
-        showAllWords();
+        //myDictionary.insertFromFile();
+        //showAllWords();
         Scanner sc = new Scanner(System.in);
         String keyWord = sc.nextLine();
         int count = 0;
@@ -51,10 +51,18 @@ public class DictionaryCommandline {
         else return false;
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
+        //DictionaryManagement dm = new DictionaryManagement();
+        myDictionary.insertFromFile();
+        showAllWords();
+        myDictionary.dictionaryExportToFile();
+        showAllWords();
+        //myDictionary.dictionaryLookup();
+        //myDictionary.dictionaryExportToFile();
         dictionarySearcher();
         //dictionaryAdvanced();
         //showAllWords();
+
     }
  
 

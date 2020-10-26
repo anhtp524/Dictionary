@@ -20,7 +20,7 @@ public class DictionaryManagement {
         }
     }
 
-    public void insertFromFile() throws IOException {
+    public void insertFromFile() throws Exception {
         File f = new File("C:\\Users\\anhtp\\IdeaProjects\\Dictionary\\tu_dien.txt");
         FileReader fr = new FileReader(f);
         BufferedReader br = new BufferedReader(fr);
@@ -65,13 +65,17 @@ public class DictionaryManagement {
         dictionary.fix(word, s);
     }
 
-    public void dictionaryExportToFile() throws IOException {
+    public void dictionaryExportToFile() throws Exception {
         File f = new File("C:\\Users\\anhtp\\IdeaProjects\\Dictionary\\tu_dien.txt");
         FileWriter fw = new FileWriter(f);
         BufferedWriter bw = new BufferedWriter(fw);
         addWord();
         int n = dictionary.size();
-        bw.write(dictionary.getWordinList(n-1) + "  " +dictionary.getMeaninList(n-1) + "\n");
+        for(int i = 0; i < n; i++) {
+            bw.write(dictionary.getWordinList( i) + "\t" + dictionary.getMeaninList(i) + "\n");
+        }
+        bw.close();
+        fw.close();
     }
 
 
