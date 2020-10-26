@@ -1,5 +1,0 @@
-Home<ok>nha
-Hello<ok>chao
-Cat<ok>meo
-Dog<ok>cho
-Count<ok>dem
