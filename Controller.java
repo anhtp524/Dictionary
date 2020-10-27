@@ -27,6 +27,8 @@ public class Controller extends Main {
     }
     //layout 2
     @FXML
+    private Button speak;
+    @FXML
     private Button Search;
     @FXML
     private Button File;
@@ -50,6 +52,14 @@ public class Controller extends Main {
         } else {
             webView.getEngine().loadContent("Khong co tu nay trong tu dien");
         }
+    }
+
+    //cai dat code cho button speak
+    @FXML
+    void speech(ActionEvent event){
+        String text = textField.getText();
+        Voice voice = new Voice("kevin16");
+        voice.sayString(text);
     }
 
     //cai dat code cho button More
