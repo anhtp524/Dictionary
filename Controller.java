@@ -61,6 +61,14 @@ public class Controller extends Main {
         Voice voice = new Voice("kevin16");
         voice.sayString(text);
     }
+    //cai dat code cho File
+    @FXML
+    void file(ActionEvent event){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("SORRY");
+        alert.setHeaderText("WE WILL UPDTE THIS SOON");
+        alert.show();
+    }
 
     //cai dat code cho button More
     @FXML
@@ -71,6 +79,7 @@ public class Controller extends Main {
         AboutUs.setVisible(false);
         textField.setVisible(false);
         webView.setVisible(false);
+        speak.setVisible(false);
     }
 
     // cai dat code cho button about us
@@ -81,11 +90,6 @@ public class Controller extends Main {
         alert.setHeaderText("Produced by:\n\nTran Long Dung\nNguyen Trung Anh\nNguyen Huu Nghia");
         alert.setContentText("Designed by CLBNS, Assembled in Duong Quang Ham");
         alert.show();
-    }
-    //cai dat cho button FIle
-    @FXML
-    void setFile(ActionEvent event){
-
     }
 
     //layout 3
@@ -113,12 +117,16 @@ public class Controller extends Main {
         AboutUs.setVisible(true);
         textField.setVisible(true);
         webView.setVisible(true);
+        speak.setVisible(true);
     }
 
     //cai dat code cho button add
     @FXML
     void Add(ActionEvent event){
         dm.addWord(word.getText() , mean.getText());
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("CONFIRM");
+        alert.setHeaderText("done");
         System.out.println("check1");
     }
 
@@ -126,6 +134,9 @@ public class Controller extends Main {
     @FXML
     void Remove(ActionEvent event){
         dm.deleteWord(word.getText());
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("CONFIRM");
+        alert.setHeaderText("done");
         System.out.println("check2");
     }
 
@@ -135,6 +146,9 @@ public class Controller extends Main {
         if(dm.dictionaryLookup(word.getText()) != null ) {
             dm.fixWord(word.getText(), mean.getText());
         }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("CONFIRM");
+        alert.setHeaderText("done");
     }
 }
 

@@ -27,7 +27,7 @@
       <WebView fx:id="webView" layoutX="29.0" layoutY="135.0" prefHeight="251.0" prefWidth="555.0" />
       <ButtonBar prefHeight="40.0" prefWidth="229.0">
         <buttons>
-          <Button fx:id="File" mnemonicParsing="false" onAction="#setFile" text="File" />
+          <Button fx:id="File" mnemonicParsing="false" onAction="#file" text="File" />
             <Button fx:id="More" mnemonicParsing="false" onAction="#getMore" text="More" />
             <Button fx:id="AboutUs" mnemonicParsing="false" onAction="#getAboutUs" text="AboutUs" />
         </buttons>
