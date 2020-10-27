@@ -1,74 +1,130 @@
+package sample;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.web.WebView;
-import javafx.stage.Stage;
-
+import javafx.scene.image.ImageView;
 import java.io.IOException;
 
 
-public class Controller {
+public class Controller extends Main {
     DictionaryManagement dm = new DictionaryManagement();
+    //layout 1
     @FXML
-    private TextField nhap;
-
-    @FXML
-    private Button tim;
+    private Button Start;
 
     @FXML
-    private Button them;
+    private ImageView imageView = new ImageView();
 
     @FXML
-    private Button xoa;
-
-    @FXML
-    private Button sua;
-
-    @FXML
-    private WebView webview;
-
-    @FXML
-
-    void Add(ActionEvent event) throws IOException {
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("Dictionary2.fxml"));
-        Parent studentViewParent = loader.load();
-        Scene scene = new Scene(studentViewParent);
-        Dictionary2 controller = loader.getController();
-        //Controller selected = table.getSelectionModel().getSelectedItem();
-        stage.setScene(scene);
-
-    }
-
-    @FXML
-    void Delete(ActionEvent event) {
-        dm.deleteWord();
-    }
-
-    @FXML
-    void Find(ActionEvent event) throws IOException {
+    void getStarted () throws IOException{
+        Start.setVisible(false);
+        imageView.setVisible(false);
         dm.insertFromFile();
-        String s = nhap.getText();
-        if(dm.dictionaryLookup(s) != null) {
-            webview.getEngine().loadContent(dm.dictionaryLookup(s).getMean());
+    }
+    //layout 2
+    @FXML
+    private Button Search;
+    @FXML
+    private Button File;
+    @FXML
+    private Button More;
+    @FXML
+    private Button AboutUs;
+    @FXML
+    private TextField textField;
+    @FXML
+    private WebView webView;
+
+    //cai dat code cho button search
+    @FXML
+    void search (ActionEvent event){
+        String tmp = textField.getText();
+        System.out.println(dm.dictionary.list.get(0));
+        if(dm.dictionaryLookup(tmp) != null) {
+
+            webView.getEngine().loadContent(dm.dictionaryLookup(tmp).getMean());
         } else {
-            webview.getEngine().loadContent("Khong co tu nay trong tu dien");
+            webView.getEngine().loadContent("Khong co tu nay trong tu dien");
         }
     }
+
+    //cai dat code cho button More
+    @FXML
+    void getMore(ActionEvent event){
+        Search.setVisible(false);
+        File.setVisible(false);
+        More.setVisible(false);
+        AboutUs.setVisible(false);
+        textField.setVisible(false);
+        webView.setVisible(false);
+    }
+
+    // cai dat code cho button about us
+    @FXML
+    void getAboutUs(ActionEvent event){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Dictionary Pro Evolution 2.0");
+        alert.setHeaderText("Produced by:\n\nTran Long Dung\nNguyen Trung Anh\nNguyen Huu Nghia");
+        alert.setContentText("Designed by CLBNS, Assembled in Duong Quang Ham");
+        alert.show();
+    }
+    //cai dat cho button FIle
+    @FXML
+    void setFile(ActionEvent event){
+
+    }
+
+    //layout 3
 
     @FXML
-    void Repair(ActionEvent event) {
-        if(dm.dictionaryLookup(nhap.getText()) != null ) {
-            dm.fixWord(nhap.getText());
-        }
+    private TextField word;
+    @FXML
+    private TextField mean;
+    @FXML
+    private Button add;
+    @FXML
+    private Button remove;
+    @FXML
+    private Button edit;
+    @FXML
+    private Button back;
+
+
+    //cai dat code cho button back
+    @FXML
+    void getBack(ActionEvent event){
+        Search.setVisible(true);
+        File.setVisible(true);
+        More.setVisible(true);
+        AboutUs.setVisible(true);
+        textField.setVisible(true);
+        webView.setVisible(true);
     }
 
+    //cai dat code cho button add
+    @FXML
+    void Add(ActionEvent event){
+        dm.addWord(word.getText() , mean.getText());
+        System.out.println("check1");
+    }
 
+    //cai dat code cho button remove
+    @FXML
+    void Remove(ActionEvent event){
+        dm.deleteWord(word.getText());
+        System.out.println("check2");
+    }
 
+    //cai dat code cho button edit
+    @FXML
+    void Edit (ActionEvent event){
+        if(dm.dictionaryLookup(word.getText()) != null ) {
+            dm.fixWord(word.getText(), mean.getText());
+        }
+    }
 }
+
