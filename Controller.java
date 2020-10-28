@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.KeyCode;
 import javafx.scene.web.WebView;
 import javafx.scene.image.ImageView;
 import java.io.IOException;
@@ -51,6 +53,19 @@ public class Controller extends Main {
             webView.getEngine().loadContent(dm.dictionaryLookup(tmp).getMean());
         } else {
             webView.getEngine().loadContent("Khong co tu nay trong tu dien");
+        }
+    }
+    @FXML
+    void keyPress(KeyEvent event) {
+        if(event.getCode() == KeyCode.ENTER){
+            String tmp = textField.getText();
+            System.out.println(dm.dictionary.list.get(0));
+            if(dm.dictionaryLookup(tmp) != null) {
+
+                webView.getEngine().loadContent(dm.dictionaryLookup(tmp).getMean());
+            } else {
+                webView.getEngine().loadContent("Khong co tu nay trong tu dien");
+            }
         }
     }
 
@@ -126,8 +141,9 @@ public class Controller extends Main {
         dm.addWord(word.getText() , mean.getText());
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("CONFIRM");
-        alert.setHeaderText("done");
-        System.out.println("check1");
+        alert.setHeaderText("DONE");
+        alert.show();
+        //System.out.println("check1");
     }
 
     //cai dat code cho button remove
@@ -136,7 +152,8 @@ public class Controller extends Main {
         dm.deleteWord(word.getText());
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("CONFIRM");
-        alert.setHeaderText("done");
+        alert.setHeaderText("DONE");
+        alert.show();
         System.out.println("check2");
     }
 
@@ -148,7 +165,7 @@ public class Controller extends Main {
         }
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("CONFIRM");
-        alert.setHeaderText("done");
+        alert.setHeaderText("DONE");
+        alert.show();
     }
 }
-
